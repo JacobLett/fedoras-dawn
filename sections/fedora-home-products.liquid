@@ -1,0 +1,113 @@
+<!-- sections/fedora-home-products.liquid -->
+{% comment %} 
+  <div class="row grid grid--1-col grid--2-col-tablet grid--4-col-desktop">
+    <div class="grid__item center">Column 1 Stuff</div>
+    <div class="grid__item center">Column 2 Stuff</div>
+  </div> 
+{% endcomment %}
+
+<ul>
+  {% for product in collections.all.products %}
+    <li>
+      <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+      <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}">
+
+    </li>
+  {% endfor %}
+</ul>
+
+<hr>
+
+<!-- flex-md-row-reverse -->
+
+{% for product in collections.all.products %}
+
+  {% if product.title contains 'Orange' %}
+
+
+    <section class="bg-orange">
+      <a href="{{ product.url }}">
+      <div class="page-width">
+        <div class="row grid grid--1-col grid--2-col-tablet align-items-center flex-md-row-reverse">
+
+          <div class="grid__item center">
+            <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+            <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
+            <p>{{ product.price | money }}</p>
+            <div>12 fl oz (354 ml)</div>
+          </div>
+          <div class="grid__item center">
+            <img src="{{ 'fedoras-blood-orange-hero.jpg' | file_img_url: '2048x2048' }}" alt="Description of the image" />
+
+
+          </div>
+        </div> 
+      </div>  
+    </a>
+    </section>
+
+  {% elsif product.title contains 'Lime' %}
+
+  <section class="bg-green">
+    <a href="{{ product.url }}">
+    <div class="page-width">
+      <div class="row grid grid--1-col grid--2-col-tablet align-items-center">
+
+        <div class="grid__item center">
+          <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+          <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
+          <p>{{ product.price | money }}</p>
+          <div>12 fl oz (354 ml)</div>
+        </div>
+        <div class="grid__item center">
+          <img src="{{ 'fedoras-yuzu-lime-hero.jpg' | file_img_url: '2048x2048' }}" alt="Description of the image" />
+
+
+        </div>
+      </div> 
+    </div>  
+  </a>
+  </section>
+
+
+  {% elsif product.title contains 'Lemon' %}
+
+  <section class="bg-yellow">
+    <a href="{{ product.url }}">
+    <div class="page-width">
+      <div class="row grid grid--1-col grid--2-col-tablet align-items-center flex-md-row-reverse">
+
+        <div class="grid__item center">
+          <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+          <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
+          <p>{{ product.price | money }}</p>
+          <div>12 fl oz (354 ml)</div>
+        </div>
+        <div class="grid__item center">
+          <img src="{{ 'fedoras-meyer-lemon-hero.jpg' | file_img_url: '2048x2048' }}" alt="Description of the image" />
+
+
+        </div>
+      </div> 
+    </div>  
+  </a>
+  </section>
+
+  {% else %}
+
+  {% endif %}
+{% endfor %}
+
+
+
+
+  <style>
+
+  </style>
+  
+  {% schema %}
+{
+  "name": "Fedora Home Products",
+  "settings": []
+}
+{% endschema %}

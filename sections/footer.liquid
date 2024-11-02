@@ -27,6 +27,53 @@
   }
 {%- endstyle -%}
 
+
+<section class="footer__testimonials bg-white">
+  <div class="page-width text-center">
+    <img src="{{ 'testimonial-orange-fedoras.png' | file_img_url: '2048x2048' }}" alt="blood orange wearing a fedora" />
+
+    <h2>Testimonials</h2>
+    <blockquote>
+      <p>The Blood Orange dressing is absolutely fantastic! I am going to have to try the others now. I didn't realize there could be so much difference between salad aressigs undi tried tus. It beats any otner store bought dressing Tve tried! - Alex in Dahlonega</p>
+    </blockquote>
+  </div>
+
+
+</section>
+
+
+<section class="footer__ingredients bg-dark-green ">
+  <div class="page-width text-center">
+  <h2 class="text-white">Accordingly Good Ingredients</h2>
+  <p class="lead text-white ">Fedora's Dressings are lower in oil and sodium, and they're vegan, gluten free and
+    Tree from GMO ingredients.</p>
+  
+
+  <div class="row grid grid--2-col grid--3-col-tablet grid--5-col-desktop">
+    <div class="grid__item center">
+      <img src="{{ 'icon-veteran-fedoras.png' | file_img_url: '2048x2048' }}" alt="veteran owned star" />
+    </div>
+    <div class="grid__item center">
+      <img src="{{ 'icon-vegan-fedoras.png' | file_img_url: '2048x2048' }}" alt="veteran owned star" />
+    </div>
+    <div class="grid__item center">
+      <img src="{{ 'icon-gluten-free-fedoras.png' | file_img_url: '2048x2048' }}" alt="veteran owned star" />
+    </div>
+    <div class="grid__item center">
+      <img src="{{ 'icon-low-sodium-fedoras.png' | file_img_url: '2048x2048' }}" alt="veteran owned star" />
+    </div>
+    <div class="grid__item center">
+      <img src="{{ 'icon-non-gmo-fedoras.png' | file_img_url: '2048x2048' }}" alt="veteran owned star" />
+    </div>
+  </div> 
+
+</div>
+</section>
+
+
+
+
+
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true
