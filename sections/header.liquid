@@ -122,11 +122,11 @@
 
 
 
-  <div class="header__utility-nav d-none d-lg-block">
+  <div class="header__utility-nav d-none d-lg-block py-4">
     <div class="page-width text-right">
-      <a href="/blogs/news">Blog</a>
-      <a href="/pages/recipes">Recipes</a>
-      <a href="/pages/find-a-retailer">Find a Retailer</a>
+      <a href="/blogs/news" class="link">Blog</a>
+      <a href="/pages/recipes" class="link">Recipes</a>
+      <a href="/pages/find-a-retailer" class="link">Find a Retailer</a>
     </div>
   </div>
 
@@ -208,9 +208,13 @@
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
           {% if cart == empty %}
-            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
+          <!-- <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span> -->
+            
+            <img src="{{ 'icon-cart-fedoras.png' | file_img_url: '2048x2048' }}" alt="Cart Icon" />
           {% else %}
-            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
+            
+            <!-- <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span> -->
+            <img src="{{ 'icon-cart-fedoras.png' | file_img_url: '2048x2048' }}" alt="Cart Icon" />
           {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}

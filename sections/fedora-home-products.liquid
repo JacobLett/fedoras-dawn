@@ -4,21 +4,38 @@
     <div class="grid__item center">Column 1 Stuff</div>
     <div class="grid__item center">Column 2 Stuff</div>
   </div> 
+
+  <ul>
+    {% for product in collections.all.products %}
+      <li>
+        <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+        <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}">
+  
+      </li>
+    {% endfor %}
+  </ul>
+
 {% endcomment %}
 
-<ul>
-  {% for product in collections.all.products %}
-    <li>
-      <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
-      <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}">
 
-    </li>
-  {% endfor %}
-</ul>
 
-<hr>
 
 <!-- flex-md-row-reverse -->
+
+
+<section class="fedoras-hero">
+  <div class="page-width">
+    <div class="fedoras-hero__text">
+      <h1 class="h2">For a Salad that Stands Out...<br> 
+      <em>Dress Accordingly™</em></h1>
+    </div>
+  </div>
+
+  
+  <img src="{{ 'home-banner-fedoras.jpg' | file_img_url: '2048x2048' }}" alt="Fedoras Salad Dressing" class="img-fluid img-responsive" loading="eager" />
+</section>
+
+
 
 <section class="brand-statement bg-red-pattern">
   <div class="page-width text-white text-center">
@@ -35,15 +52,17 @@
   {% if product.title contains 'Orange' %}
 
 
-    <section class="bg-orange">
+    <section class="product-hero bg-orange {{ product.id }}">
       <a href="{{ product.url }}">
       <div class="page-width">
         <div class="row grid grid--1-col grid--2-col-tablet align-items-center flex-md-row-reverse">
 
           <div class="grid__item center">
-            <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+            <h2 class="h1 text-white">FEDORAS BLOOD ORANGE</h2>
             <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
-            <p>{{ product.price | money }}</p>
+
+            <div>{{ product.title }}</div>
+            <div>{{ product.price | money }}</div>
             <div>12 fl oz (354 ml)</div>
           </div>
           <div class="grid__item center">
@@ -56,17 +75,23 @@
     </a>
     </section>
 
-  {% elsif product.title contains 'Lime' %}
+    {% endif %}
+    {% endfor %}
 
-  <section class="bg-green">
+
+    {% for product in collections.all.products %}
+  {% if product.title contains 'Lime' %}
+
+  <section class="product-hero bg-green {{ product.id }}">
     <a href="{{ product.url }}">
     <div class="page-width">
       <div class="row grid grid--1-col grid--2-col-tablet align-items-center">
 
         <div class="grid__item center">
-          <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+          <h2 class="h1 text-white">FEDORAS YUZU LIME</h2>
           <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
-          <p>{{ product.price | money }}</p>
+          <div>{{ product.title }}</div>
+          <div>{{ product.price | money }}</div>
           <div>12 fl oz (354 ml)</div>
         </div>
         <div class="grid__item center">
@@ -79,18 +104,22 @@
   </a>
   </section>
 
+  {% endif %}
+{% endfor %}
 
-  {% elsif product.title contains 'Lemon' %}
+{% for product in collections.all.products %}
+  {% if product.title contains 'Lemon' %}
 
-  <section class="bg-yellow">
+  <section class="product-hero bg-yellow  {{ product.id }}">
     <a href="{{ product.url }}">
     <div class="page-width">
       <div class="row grid grid--1-col grid--2-col-tablet align-items-center flex-md-row-reverse">
 
         <div class="grid__item center">
-          <div>ID: {{ product.id }} - Name: {{ product.title }}</div>
+          <h2 class="h1 text-white">FEDORAS MEYER LEMON</h2>
           <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
-          <p>{{ product.price | money }}</p>
+          <div>{{ product.title }}</div>
+          <div>{{ product.price | money }}</div>
           <div>12 fl oz (354 ml)</div>
         </div>
         <div class="grid__item center">
@@ -103,7 +132,6 @@
   </a>
   </section>
 
-  {% else %}
 
   {% endif %}
 {% endfor %}

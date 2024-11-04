@@ -39,12 +39,49 @@ section[class*="bg-"]  {
     background-color:var(--color-red);
 }
 
+
+/*  */
+blockquote ,
+.noto-serif {
+  font-family: "Noto Serif", serif;
+}
+
+h2, .h2,
+.roboto-condensed
+{
+    font-family: "Roboto Condensed", sans-serif;
+
+}
+
+
 /* 
 //////////////////////
 HEADER & FOOTER
 */
 body .header {
     padding-top:0;
+}
+
+
+.header__menu-item {
+    padding-bottom:0;
+}
+
+.header {
+    align-items: flex-end;
+}
+
+.lead {
+    font-size:20px;
+}
+
+.header__inline-menu .link {
+    font-size:17px;
+    font-weight:500;
+}
+
+.header__inline-menu .link:hover {
+    color:#fff;
 }
 
 .header__icon .svg-wrapper,
@@ -56,7 +93,17 @@ body .header {
 color:#fff;
 }
 
+.header__icon--search {
+    text-decoration: none;
+    width: auto;
+    margin-right:10px;
+}
 
+.search-text {
+    font-size:13px;
+    margin-left:5px;
+    color:#fff;
+}
 
 @media screen and (min-width:768px) {
 
@@ -83,6 +130,10 @@ body .header {
     fill:#fff;
 }
 
+.header__utility-nav a {
+margin-left:25px;
+}
+
 .header__utility-nav a,
 .footer a
 {
@@ -103,6 +154,51 @@ body .header {
 position: absolute;
 bottom:0;
 right:0;
+}
+
+
+/* 
+//////////////////////
+HOME
+*/
+.fedoras-hero {
+    text-align:center;
+}
+
+
+
+
+
+.fedoras-hero .page-width {
+    position:relative;
+    padding:3rem;
+}
+.fedoras-hero .fedoras-hero__text {
+    position: absolute;
+    text-align:left;
+}
+
+h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
+    color:#024930;
+    line-height:1.1;
+}
+
+
+
+.product-hero .page-width {
+    padding:0;
+}
+
+.fedoras-hero .fedoras-hero__text h1 {
+    font-size: 30px;
+}
+
+
+.product-hero .row .grid__item:first-child img {
+    margin-left:-22%;
+}
+.product-hero .row.flex-md-row-reverse .grid__item:first-child img {
+margin-right:-17%;
 }
 
 /* Bootstrap 4 utility classes */
