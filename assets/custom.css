@@ -19,7 +19,7 @@ section[class*="bg-"]  {
 
 @media screen and (min-width:768px) {
     section[class*="bg-"]  {
-        padding:60px 0;
+        padding:40px 0;
     } 
 }
 
@@ -134,11 +134,20 @@ body .header {
 margin-left:25px;
 }
 
+.header__menu-item a,
 .header__utility-nav a,
 .footer a
 {
     text-decoration: none;
     color:#fff;
+}
+
+.header__menu-item:hover span,
+.header__utility-nav a:hover,
+.footer a:hover
+{
+    text-decoration: none;
+    color:var(--color-dark-green);
 }
 
 .footer-menu .list-unstyled {
@@ -163,6 +172,7 @@ HOME
 */
 .fedoras-hero {
     text-align:center;
+    background-color:#f9f9fb;
 }
 
 
@@ -184,7 +194,15 @@ h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
 }
 
 
+.product-hero a {
+    text-decoration: none;
+    color: #fff;
+}
 
+.product-hero.bg-yellow h2,
+.product-hero.bg-yellow a {
+    color:var(--color-dark-green);
+}
 .product-hero .page-width {
     padding:0;
 }
@@ -198,7 +216,16 @@ h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
     margin-left:-22%;
 }
 .product-hero .row.flex-md-row-reverse .grid__item:first-child img {
-margin-right:-17%;
+
+}
+
+.product-hero .product-hero__description {
+    font-weight: 500;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height:auto;
 }
 
 /* Bootstrap 4 utility classes */

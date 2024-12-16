@@ -1,0 +1,38 @@
+{{ page.title }}
+
+OUR STORY
+
+
+
+<!-- Start of Two-Column Layout -->
+<div class="two-column-layout">
+    <!-- Default Content Column -->
+    <div class="column">
+      <div class="content">
+        {{ page.content }}
+      </div>
+    </div>
+  
+    <!-- Custom Meta Field Content Column -->
+    <div class="column">
+      <div class="content">
+        
+
+        {{ page.metafields.custom.column_2_image | metafield_tag }}
+        {{ page.metafields.custom.column_2_content  | metafield_tag}}
+      </div>
+    </div>
+  </div>
+  <!-- End of Two-Column Layout -->
+  
+  {{ data.children[0].children[0].value }}
+
+  {% for child in root.children %}
+    {% if child.type == "paragraph" %}
+      {% for textNode in child.children %}
+        {% if textNode.type == "text" %}
+          {{ textNode.value }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
