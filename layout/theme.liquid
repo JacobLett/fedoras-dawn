@@ -168,9 +168,9 @@
         .color-{{ scheme.id }} {
           --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
         {% if scheme.settings.background_gradient != empty %}
-          --gradient-background: {{ scheme.settings.background_gradient }};
+          --gradient-background: #f9f9fb;
         {% else %}
-          --gradient-background: {{ scheme.settings.background }};
+          --gradient-background: #f9f9fb;
         {% endif %}
 
         {% liquid
@@ -234,7 +234,7 @@
         --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
         --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
 
-        --page-width: 1000px;
+        --page-width: 1100px;
         --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
 
         --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
@@ -412,7 +412,7 @@
     </script>
   </head>
 
-  <body class="fedoras {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="fedoras {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} template-{{ template.name }}{% if template.suffix %}-{{ template.suffix }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -427,7 +427,9 @@
       {{ content_for_layout }}
     </main>
 
+
     {% sections 'footer-group' %}
+    {% sections 'footer' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

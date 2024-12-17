@@ -1,38 +1,15 @@
-{{ page.title }}
 
-About fedoras working now? test 123
 
-{{ page.metafields.custom.hero_image | metafield_tag }}
+{% if page.metafields.custom.hero_image %}
+  <div class="page-width page-hero-img">{{ page.metafields.custom.hero_image | metafield_tag }}</div>
+{% endif %}
 
-<!-- Start of Two-Column Layout -->
-<div class="two-column-layout">
-    <!-- Default Content Column -->
-    <div class="column">
-      <div class="content">
-        {{ page.content }}
-      </div>
-    </div>
-  
-    <!-- Custom Meta Field Content Column -->
-    <div class="column">
-      <div class="content">
-        
+<div class="page-width center">
 
-        {{ page.metafields.custom.column_2_image | metafield_tag }}
-        {{ page.metafields.custom.column_2_content  | metafield_tag}}
-      </div>
-    </div>
-  </div>
-  <!-- End of Two-Column Layout -->
-  
-  {{ data.children[0].children[0].value }}
+<h1>{{ page.title }}</h1>
 
-  {% for child in root.children %}
-    {% if child.type == "paragraph" %}
-      {% for textNode in child.children %}
-        {% if textNode.type == "text" %}
-          {{ textNode.value }}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
+{{ page.content }}
+
+
+
+</div>

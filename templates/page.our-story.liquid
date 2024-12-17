@@ -1,38 +1,16 @@
-{{ page.title }}
-
-OUR STORY
 
 
+<div class="page-width">
+  <h1 class="center">{{ page.title }}</h1>
 
-<!-- Start of Two-Column Layout -->
-<div class="two-column-layout">
-    <!-- Default Content Column -->
-    <div class="column">
-      <div class="content">
-        {{ page.content }}
-      </div>
+
+  <div class="row grid grid--1-col grid--2-col-tablet grid--2-col-desktop">
+    <div class="grid__item">
+      {{ page.metafields.custom.column_2_image | metafield_tag }}
+      {{ page.metafields.custom.column_2_content  | metafield_tag}}
     </div>
-  
-    <!-- Custom Meta Field Content Column -->
-    <div class="column">
-      <div class="content">
-        
-
-        {{ page.metafields.custom.column_2_image | metafield_tag }}
-        {{ page.metafields.custom.column_2_content  | metafield_tag}}
-      </div>
-    </div>
+    <div class="grid__item">{{ page.content }}</div>
   </div>
-  <!-- End of Two-Column Layout -->
-  
-  {{ data.children[0].children[0].value }}
+</div>
+<!-- .page-width -->
 
-  {% for child in root.children %}
-    {% if child.type == "paragraph" %}
-      {% for textNode in child.children %}
-        {% if textNode.type == "text" %}
-          {{ textNode.value }}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
