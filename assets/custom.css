@@ -165,10 +165,41 @@ margin-left:25px;
 }
 
 .footer .social-links {
+padding:0;
+margin-top:1rem;
+}
+
+@media screen and (min-width:768px) {
+
+.footer .social-links {
 position: absolute;
 bottom:0;
 right:0;
 }
+
+
+
+
+}
+
+
+
+@media screen and (max-width:768px) {
+
+
+
+.header {
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+
+.header__heading img {
+    width:120px;
+}
+
+}
+
+
 
 
 /* 
@@ -247,15 +278,23 @@ body .swiper-pagination-bullet-active {
 .fedoras-hero .fedoras-hero__text {
     position: absolute;
     text-align:left;
-    left:20%;
+    left:15%;
     top:1%;
+}
+
+body .swiper-button-next, body .swiper-button-prev, body .swiper-pagination {
+z-index: 2;
+}
+
+#menu-drawer .list-social {
+    display:flex;
 }
 
 .fedoras-hero .fedoras-hero__text h1 {
     font-size: 26px;
 }
 .fedoras-hero .swiper-slide {
-    padding:60px 0 20px 0;
+    padding:100px 0 20px 0;
 }
 @media screen and (min-width:998px) {
 
@@ -269,8 +308,19 @@ body .swiper-pagination-bullet-active {
         left:20%;
         top:5%;
     }
+    .fedoras-hero .swiper-slide .fedoras-hero__text-1 h1 em {
+        display:block;
+    }
+    .fedoras-hero .fedoras-hero__text h1 {
+        font-size: 40px;
+        margin-top:10px;
+        }
 
-    .fedoras-hero .fedoras-hero__text h1 {font-size: 40px;}
+        .fedoras-hero .fedoras-hero__text-2 h1 {
+            margin-top:50px;
+            }
+
+
 }
 
 
@@ -309,6 +359,56 @@ h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
     height:auto;
 }
 
+.product-hero.bg-orange .img-fluid {
+    max-height:360px;
+}
+
+@media screen and (min-width: 750px) {
+    .product-hero.bg-yellow .grid__item:first-child,
+    .product-hero.bg-green .grid__item:first-child {
+        width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
+    }
+    .product-hero.bg-yellow .grid__item:last-child,
+    .product-hero.bg-green .grid__item:last-child {
+        width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
+    }
+
+
+
+}
+
+
+
+
+/* testimonials slider  */
+#quotes-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out; /* Smoothly adjust height */
+  margin-bottom:2rem;
+}
+#quotes-container .lead {
+    margin:0;
+    font-size:24px;
+}
+.quote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin:0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  
+}
+
+.quote.active {
+  opacity: 1;
+}
+
+
 
 /* 
 //////////////////////
@@ -334,6 +434,7 @@ body[class*="template-page"] .content-for-layout  {
 body[class*="template-page"] h1  {
     text-transform: uppercase;
     font-size:32px;
+    margin:4rem 0;
 }
 
 /* 
@@ -357,11 +458,14 @@ PAGE - ABOUT
 //////////////////////
 PAGE - Our Story
 */
+
+.template-page-our-story .sidebar img {
+    max-width:100%;
+    height:auto;
+}
+
 @media screen and (min-width:768px) {
-    .template-page-our-story .sidebar img {
-        max-width:100%;
-        height:auto;
-    }
+
 .template-page-our-story .grid--2-col-desktop .grid__item:first-child {
     width: calc(30% - 2rem) ;
     max-width: calc(30% - 3rem) ;
@@ -371,6 +475,12 @@ PAGE - Our Story
     max-width:  calc(70% - 3rem) ;
 }
  }
+
+
+ .template-page-our-story .grid--2-col-desktop .grid__item:last-child h2:first-of-type {
+   margin-top:0;
+}
+
 
  .template-page-our-story main .grid {
     gap:3rem;
@@ -416,6 +526,35 @@ COLLECTIONS
     justify-self:center;
 }
  
+
+body.template-page-contact h1 {
+    text-align:center;
+    margin-bottom:1rem;
+}
+
+
+
+@media screen and (max-width: 749px) {
+ body.template-collection .grid__item {
+        width: calc(100% - var(--grid-mobile-horizontal-spacing) / 2);
+        max-width:none;
+    }
+}
+
+
+body.template-collection .card .media {
+   max-height:300px;
+}
+body.template-collection .card__media .media img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    width: 100%;
+}
+
+body.template-collection .card__inner.ratio::before {
+    padding-bottom:67%;
+}
 
 
 /* 

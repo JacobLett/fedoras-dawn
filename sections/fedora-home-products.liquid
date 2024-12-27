@@ -39,14 +39,13 @@
   <div class="swiper-container fedoras-hero">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <div class="fedoras-hero__text">
-          <h1 class="h2">For a Salad that Stands Out...<br> 
-          <em>Dress Accordingly™</em></h1>
+        <div class="fedoras-hero__text fedoras-hero__text-1">
+          <h1 class="h2">For a Salad that Stands Out... <em>Dress Accordingly™</em></h1>
         </div>
       <img src="{{ 'fedoras-home-1.jpg' | file_img_url: '2048x2048' }}" alt="Fedoras Salad Dressing" class="img-fluid img-responsive" loading="eager" />
       </div>
       <div class="swiper-slide">
-        <div class="fedoras-hero__text">
+        <div class="fedoras-hero__text  fedoras-hero__text-2">
           <h1 class="h2">We use only <em>fresh</em>,<br> 
             natural ingredients.</h1>
         </div>
@@ -109,7 +108,7 @@
 
 <section class="brand-statement bg-red-pattern">
   <div class="page-width text-white text-center">
-    <p class="lead">Regular salad dressings are like baseball caps: they'll do the job, but lack panache. Fedoras is ditterent. Mac le with better ingredients and a lot less oil. our sala dressing is juicy, delicious and different. Whether vou re craving zest Mever lemon. exotic vuzu or colorful blood orange Fedoras will dress up your salads like nothing else. So dont settle for a baseball cap; for a salad that stands out. <em class="font-weight-bold">Dress Accordingly™</em>.</p>
+    <p class="lead">Regular salad dressings are like baseball caps: they'll do the job, but lack panache. Fedoras is different. Made with better ingredients and a lot less oil, our salad dressing is juicy, delicious and different. Whether you're craving zesty Meyer lemon, exotic yuzu or colorful blood orange, Fedoras will dress up your salads like nothing else. So don't settle for a baseball cap; for a salad that stands out, <em class="font-weight-bold">Dress Accordingly™</em><span style="margin-left:-12px;">.</span></p>
     
   </div>
 </section>
@@ -133,7 +132,7 @@
 
             <div class="product-hero__description ">      
               <div>{{ product.title }}</div>
-              <div>{{ product.price | money }}</div>
+              {% comment %}<div>{{ product.price | money }}</div>{% endcomment %}
               <div>12 fl oz (354 ml)</div>
             </div>
           </div>
@@ -164,7 +163,7 @@
           <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
           <div class="product-hero__description ">      
             <div>{{ product.title }}</div>
-            <div>{{ product.price | money }}</div>
+            {% comment %}<div>{{ product.price | money }}</div>{% endcomment %}
             <div>12 fl oz (354 ml)</div>
           </div>
         </div>
@@ -194,7 +193,7 @@
           <img src="{{ product.images.first | img_url: 'original' }}" alt="{{ product.title }}">
           <div class="product-hero__description ">      
             <div>{{ product.title }}</div>
-            <div>{{ product.price | money }}</div>
+            {% comment %}<div>{{ product.price | money }}</div>{% endcomment %}
             <div>12 fl oz (354 ml)</div>
           </div>
         </div>
@@ -217,20 +216,63 @@
     <img src="{{ 'testimonial-orange-fedoras.png' | file_img_url: '2048x2048' }}" alt="blood orange wearing a fedora" />
 
     <h2>Testimonials</h2>
-    <blockquote>
-      <p class="lead">The Blood Orange dressing is absolutely fantastic! I am going to have to try the others now. I didn't realize there could be so much difference between salad aressigs undi tried tus. It beats any otner store bought dressing Tve tried! - Alex in Dahlonega</p>
-    </blockquote>
+    
+    <div id="quotes-container">
+      <blockquote class="quote active">
+        <p class="lead">The Blood Orange dressing is absolutely fantastic! I am going to have to try the others now. I didn’t realize there could be so much difference between salad dressings until I tried this. It beats any other store bought dressing I’ve tried! - Alex in Dahlonega</p>
+      </blockquote>
+      <blockquote class="quote">
+        <p class="lead">Delicious! Fedoras is my go-to dressing when I don’t want to go to the effort of going to Whole Foods for fancy ingredients. It makes a great marinade, too. - George in Woodstock</p>
+      </blockquote>
+      <blockquote class="quote">
+        <p class="lead">These salad dressings are so versatile! I love that I can mix up my salad topping any way I like and the Fedoras dressings are still the perfect addition. I’ll be keeping my house stocked for sure. - Allison in Atlanta </p>
+      </blockquote>
+    </div>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("quotes-container");
+    const quotes = document.querySelectorAll("#quotes-container .quote");
+    let currentIndex = 0;
+  
+    // Function to adjust the container height
+    function adjustContainerHeight() {
+      const activeQuote = quotes[currentIndex];
+      container.style.height = `${activeQuote.offsetHeight}px`;
+    }
+  
+    function showNextQuote() {
+      // Remove the 'active' class from the current quote
+      quotes[currentIndex].classList.remove("active");
+  
+      // Increment the index to show the next quote
+      currentIndex = (currentIndex + 1) % quotes.length;
+  
+      // Add the 'active' class to the next quote
+      quotes[currentIndex].classList.add("active");
+  
+      // Adjust the container height for the new active quote
+      adjustContainerHeight();
+    }
+  
+    // Set an interval to change quotes every 5 seconds
+    setInterval(showNextQuote, 6000);
+  
+    // Adjust height on page load
+    adjustContainerHeight();
+  });
+  
+</script>
+
   </div>
-
-
 </section>
 
 
 <section class="footer__ingredients bg-dark-green ">
   <div class="page-width text-center">
   <h2 class="text-white">Accordingly Good Ingredients</h2>
-  <p class="lead text-white ">Fedora's Dressings are lower in oil and sodium, and they're vegan, gluten free and
-    Tree from GMO ingredients.</p>
+  <p class="lead text-white ">Fedora's Dressings are lower in oil and sodium, and they're vegan, gluten free and free from GMO ingredients.</p>
   
 
   <div class="row grid grid--2-col grid--3-col-tablet grid--5-col-desktop">
