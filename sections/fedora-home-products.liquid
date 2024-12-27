@@ -23,18 +23,6 @@
 <!-- flex-md-row-reverse -->
 
 
-<section class="fedoras-hero">
-  <div class="page-width">
-    <div class="fedoras-hero__text">
-      <h1 class="h2">For a Salad that Stands Out...<br> 
-      <em>Dress Accordingly™</em></h1>
-    </div>
-  </div>
-
-  
-  <img src="{{ 'fedoras-home-1.jpg' | file_img_url: '2048x2048' }}" alt="Fedoras Salad Dressing" class="img-fluid img-responsive" loading="eager" />
-  <img src="{{ 'fedoras-home-2.jpg' | file_img_url: '2048x2048' }}" alt="Fedoras Salad Dressing" class="img-fluid img-responsive" loading="eager" />
-</section>
 
 
 
@@ -43,64 +31,27 @@
 
 
 
-<style>
-/* Swiper Container */
-.swiper-container {
-  width: 100%;
-  height: 400px;
-}
 
-/* Swiper Slide */
-.swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #fff;
-  background: #333;
-  transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
-}
 
-   /* Navigation Arrows */
-   .swiper-button-prev, .swiper-button-next {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
 
-  .swiper-button-prev {
-    left: 10px;
-  }
-
-  .swiper-button-next {
-    right: 10px;
-  }
-
-/* Pagination Dots */
-.swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.swiper-pagination-bullet-active {
-  background: #fff;
-}
-</style>
 
   <!-- Swiper Container -->
-  <div class="swiper-container">
+  <div class="swiper-container fedoras-hero">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">
+        <div class="fedoras-hero__text">
+          <h1 class="h2">For a Salad that Stands Out...<br> 
+          <em>Dress Accordingly™</em></h1>
+        </div>
+      <img src="{{ 'fedoras-home-1.jpg' | file_img_url: '2048x2048' }}" alt="Fedoras Salad Dressing" class="img-fluid img-responsive" loading="eager" />
+      </div>
+      <div class="swiper-slide">
+        <div class="fedoras-hero__text">
+          <h1 class="h2">We use only <em>fresh</em>,<br> 
+            natural ingredients.</h1>
+        </div>
+      <img src="{{ 'fedoras-home-2.jpg' | file_img_url: '2048x2048' }}" alt="Fedoras Salad Dressing" class="img-fluid img-responsive" loading="eager" />
+      </div>
     </div>
 
     <!-- Navigation Arrows -->
@@ -120,9 +71,10 @@
       fadeEffect: {
         crossFade: true, // Enable smooth crossfade transition
       },
+      speed: 1000, // Increase duration to 3000ms (3 seconds)
       autoplay: {
-        delay: 3000, // 3 seconds between slides
-        disableOnInteraction: false, // Keep autoplay on interaction
+        delay: 5000, // 3 seconds between slides
+        disableOnInteraction: true, // Keep autoplay on interaction
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -143,6 +95,10 @@
     swiperContainer.addEventListener('mouseleave', function() {
       swiper.autoplay.start(); // Restart autoplay when hover ends
     });
+
+        // Custom easing using CSS
+        const swiperWrapper = document.querySelector('.swiper-wrapper');
+        swiperWrapper.style.transitionTimingFunction = 'ease-in-out';
   </script>
 
 

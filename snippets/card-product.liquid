@@ -41,6 +41,17 @@
     endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
+
+    <div class="card--dressingtitle">
+    {%- if card_product.title contains "Lemon" -%}
+      Fedoras Meyer Lemon
+    {%- elsif card_product.title contains "Lime" -%}
+        Fedoras Yuzu Lime    
+      {%- elsif card_product.title contains "Orange" -%}
+        Fedoras Blood Orange
+  {%- endif -%}
+  </div>
+
     <div
       class="
         card card--{{ settings.card_style }}

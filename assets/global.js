@@ -688,7 +688,8 @@ class ModalOpener extends HTMLElement {
     });
   }
 }
-customElements.define('modal-opener', ModalOpener);
+
+/*  customElements.define('modal-opener', ModalOpener);
 
 class DeferredMedia extends HTMLElement {
   constructor() {
@@ -714,6 +715,7 @@ class DeferredMedia extends HTMLElement {
     }
   }
 }
+*/
 
 customElements.define('deferred-media', DeferredMedia);
 
