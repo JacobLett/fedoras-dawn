@@ -364,6 +364,14 @@ h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
 }
 
 @media screen and (min-width: 750px) {
+
+.product-hero.bg-orange h2 {
+    max-width:360px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
     .product-hero.bg-yellow .grid__item:first-child,
     .product-hero.bg-green .grid__item:first-child {
         width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
